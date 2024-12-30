@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head') %>
+    <title>Signup</title>
+    <style>
+      body{
+        background-color: #DDD0C8;
+      }
+      p{
+        margin-top: 100px;
+        position:relative;
+        left: 730px;
+        font-family: cursive;
+        font-weight: 800;
+        font-size:25px;
+      }
+      .container {
+        background-color: white;
+        border: 2px solid black;
+        padding: 17px;
+        padding-top: 40px;
+        width: 370px;
+        border-radius: 10px;
+      }
+      input{
+        border-radius: 5px;
+        width: 100%;
+      }
+      .fullName,.email,.password{
+        font-family:cursive;
+        font-weight: 800;
+        margin-bottom: 11px;
+      }
+      .btn{
+        height: 40px;
+        width: 100%;
+        color: white;
+        background-color: rgb(34, 34, 34);
+      }
+      .btn:hover {
+        background-color: rgba(34, 34, 34, 0.811);  
+        color:white;
+        cursor: pointer; 
+      }
+    </style>
+</head>
+
+<body>
+  <%- include('./partials/nav') %>
+  <p style="width:70px">Signup</p>
+    <div class="container">
+      <form action="/user/signup" method="post">
+        <div class="fullName">
+          <label for="fullName">Full Name</label>
+        </div>
+          <input type="text" id="fullName" name="fullName" aria-describedby="fullName" style="margin-bottom: 25px;" />
+        
+        <div class="email">
+          <label for="exampleInputEmail1">Email address</label>
+        </div>
+        <input type="email" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" />
+        <div id="emailHelp" style="margin-bottom: 25px;text-decoration: underline; ">
+          We'll never share your email with anyone else.
+        </div>
+
+        <div class="password">
+          <label for="exampleInputPassword1">Password</label>
+        </div>
+        <input name="password" type="password" id="exampleInputPassword1" style="margin-bottom: 25px;" />
+        
+        <div>
+          <button type="submit" class="btn">Submit</button>
+        </div>
+
+      </form>
+    </div>
+
+    <%- include('./partials/scripts') %>
+</body>
+
+</html>

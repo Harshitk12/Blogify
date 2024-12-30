@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Homepage</title>
+    <style>
+      body{
+        background-color: #DDD0C8;
+      }
+      .card{
+        height: 250px; width:349px; 
+        border: 2px solid black;
+        margin: 25px;
+        display:inline-block;
+        box-shadow:  5px 10px 10px rgb(34, 34, 34);
+        border-radius: 10px;
+      }
+      video{
+        border-top-left-radius:10px;
+        border-top-right-radius: 10px;
+      }
+      .card:hover{
+        cursor:pointer;
+        opacity: 0.9;
+      }
+      .title{
+        background-color: rgba(41, 25, 3, 0.514);
+        height:52px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('./partials/nav') %>
+    
+      <div class="container">
+        
+        <% blogs.forEach(blog => { %>
+          <div class="card" onclick="redirectToBlogPage('/blog/<%= blog._id %>')">
+            <div style="height:195px;width:350px">
+              <video src="<%= blog.coverImageURL %>"  style="height:195px" loop muted></video>
+            </div>  
+            <div class="title">
+              <h5 ><%= blog.title %></h5>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+      <%- include('./partials/scripts') %>
+      
+    <script>
+      const videos = document.querySelectorAll('video');
+
+      function redirectToBlogPage(path){
+        window.location.href = path;
+      }
+
+      videos.forEach(video => {
+        video.addEventListener('mouseenter', () => {
+          video.play(); 
+        });
+      
+        video.addEventListener('mouseleave', () => {
+          video.pause(); 
+          video.currentTime = 0; 
+        });
+      });
+    </script>
+  </body>
+</html>

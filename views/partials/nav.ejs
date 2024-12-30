@@ -1,0 +1,52 @@
+<style>
+  .nav *{
+    margin-right: 12px;
+    margin-left: 12px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  a{
+    color: white;
+    font-family: 'Lucida Sans';
+    text-decoration:none;
+    font-size: 17px;
+    width: 100%;
+  }
+  a:hover{
+    opacity: 0.6;
+  }
+</style>
+
+
+<div class="nav" style="height: 50px;background-color:rgba(0, 0, 0, 0.808);display:flex;align-items:center;">
+      <div style="margin-left:0px;">
+        <a href="/" style="font-weight:bolder;font-size:30px;color:rgb(209, 127, 69);margin-left:5px">Blogify</a>
+      </div>
+      <div>
+        <a aria-current="page" href="/">Home</a>
+      </div>
+      <% if (locals.user) { %>
+        <div>
+          <a href="/blog/add-new">Add Blog</a>
+        </div>
+        <div>
+          <a href="#" id="username"><%= locals.user.fullName %></a>
+        </div>
+        <div><a href="/user/logout">Logout</a></div>
+      <% } else {%>
+          <div >
+            <a href="/user/signup">Create Account</a>
+          </div>
+          <div >
+            <a href="/user/signin">Signin</a>
+          </div>
+      <% } %>
+</div>
+
+
+<% if (locals.error) { %>
+  <div style="height:40px;background-color:rgba(255, 0, 0, 0.311);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:larger">
+      <%= locals.error %>
+  </div>
+  <% } %>
