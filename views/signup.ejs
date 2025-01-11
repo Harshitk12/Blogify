@@ -6,23 +6,25 @@
     <title>Signup</title>
     <style>
       body{
-        background-color: #DDD0C8;
       }
       p{
-        margin-top: 100px;
-        position:relative;
-        left: 730px;
         font-family: cursive;
         font-weight: 800;
         font-size:25px;
       }
       .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         background-color: white;
         border: 2px solid black;
         padding: 17px;
-        padding-top: 40px;
+        padding-top: 20px;
         width: 370px;
         border-radius: 10px;
+        margin-top: 140px;
+        margin-left: 44vw;
       }
       input{
         border-radius: 5px;
@@ -49,8 +51,8 @@
 
 <body>
   <%- include('./partials/nav') %>
-  <p style="width:70px">Signup</p>
     <div class="container">
+      <p >Signup</p>
       <form action="/user/signup" method="post">
         <div class="fullName">
           <label for="fullName">Full Name</label>

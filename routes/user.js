@@ -18,6 +18,8 @@ router.get("/signup", (req, res) => {
 
 router.post("/signin", async (req, res) => {
   const { email, password } = req.body;
+  if(!password || !email)
+    return res.render("signin");
   try { 
     const {token,user} = await User.matchPasswordAndGenerateToken(email, password);
     

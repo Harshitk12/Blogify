@@ -5,12 +5,11 @@
     <title>Homepage</title>
     <style>
       body{
-        background-color: #DDD0C8;
       }
       .card{
         height: 250px; width:349px; 
         border: 2px solid black;
-        margin: 25px;
+        margin: 20px;
         display:inline-block;
         box-shadow:  5px 10px 10px rgb(34, 34, 34);
         border-radius: 10px;
@@ -28,7 +27,6 @@
         opacity: 0.9;
       }
       .title{
-        background-color: rgba(41, 25, 3, 0.514);
         height:52px;
         display:flex;
         justify-content:center;
@@ -40,7 +38,7 @@
   <body>
     <%- include('./partials/nav') %>
     
-      <div class="container">
+      <div class="container" style="display: inline-block;margin-left:260px;margin-top:60px">
         
         <% blogs.forEach(blog => { %>
           <div class="card" onclick="redirectToBlogPage('/blog/<%= blog._id %>')">

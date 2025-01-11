@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./partials/head') %>
     <title>User Info</title>
     <style>
-        
-        .container{
+        body{
+            box-sizing: border-box;
+        }
+        .usercontainer{
+            margin-top: 55px;
+            margin-left: 200px;
             display: flex;
             height: 350px;
             align-items: center;
@@ -39,16 +42,16 @@
         .userInfo{
             margin-top:0px;
             height: 100%;
-            padding-top: 120px;
+            padding-top: 60px;
             position:relative;
         }
         .userInfo > *{
             display: flex;
-            margin-bottom: 20px;
+            margin-bottom: 1px;
             font-size: 25px;
         }
-        input{
-            width: 50vw;
+        .info{
+            width: 40vw;
             border-radius: 4px;
             border: 2px solid rgba(0, 0, 0, 0.203);
             height: 27px;
@@ -57,7 +60,7 @@
             color: black;
             font-size: 20px;
         }
-        input::placeholder{
+        .info::placeholder{
             font-family: cursive;
             font-weight: bold;
             color: black;
@@ -81,37 +84,38 @@
           img{
             border: 2px solid black;
             border-radius: 50%;
+            height: 235px;
           }
-    </style>
+    </style> 
 </head>
 <body>
     <%- include('./partials/nav') %>
     
     
-    <form class="container" action="/user/info/<%= user._id %>" method="post" enctype="multipart/form-data">
+    <form class="usercontainer" action="/user/info/<%= user._id %>" method="post" enctype="multipart/form-data">
             <div class="userImg">
                 <img src="<%= user.profileImageURL %>" width="250px" />
                 <% if(user._id==currUser._id) {%>
                 <div>
-                    <label for="pfp" class="file-label">Choose Image</label>
-                    <input type="file" id="pfp" name="profileImageURL">
+                    <label  for="pfp" class="file-label">Choose Image</label>
+                    <input class="info" type="file" id="pfp" name="profileImageURL">
                 </div>
             </div>
             <% } %>
             <div class="userInfo"> 
-            <div class="info name">
+            <div class=" name">
                 <pre>Name :         </pre>
                 <input class="info" type="text" name="fullName" value="<%= user.fullName %>">
             </div>
-            <div class="info email">
+            <div class=" email">
                 <pre>Email :        </pre>
                 <input class="info" type="text" name="email" value="<%= user.email %>">
             </div>
-            <div class="info age">
+            <div class=" age">
                 <pre>Age :          </pre>
                 <input class="info" type="text" name="age" value="<%= user.age %>">
             </div>
-            <div class="info profession">
+            <div class=" profession">
                 <pre>Profession :   </pre>
                 <input class="info" type="text" name="profession" value="<%= user.profession %>">
             </div>
@@ -126,7 +130,7 @@
 
 <script>
     const editButton=document.querySelector('.editButton');
-    const info=document.querySelectorAll('input');
+    const info=document.querySelectorAll('.info');
     info.forEach(input => (input.disabled = true));
 
 editButton.addEventListener('click', (event) => {
@@ -139,6 +143,6 @@ editButton.addEventListener('click', (event) => {
         editButton.type = "submit"; 
     }
 });
-</script>
+</script> 
 </body>
 </html>

@@ -1,58 +1,136 @@
 <style>
-  *{
+  * {
     margin: 0px;
+    box-sizing: border-box;
   }
-  .nav *{
-    margin-right: 12px;
-    margin-left: 12px;
-    height: 100%;
+  .nav2 {
+    width: 200px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.863);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 55px;
+    left: 0;
+    z-index: 1;
+ 
+  }
+  .nav2 * {
+    width: 100%;
+    margin: 0;
+    padding: 7px 15px;
     display: flex;
     align-items: center;
-    position: relative;
-    z-index: 1;
   }
-  a{
+  a {
     color: white;
     font-family: 'Lucida Sans';
-    text-decoration:none;
-    font-size: 17px;
-    width: 100%;
+    text-decoration: none;
+    font-size: 21px;
+    width: 200px;
     cursor: pointer;
   }
-  a:hover{
+  a:hover {
     opacity: 0.6;
   }
+  .logo{
+    font-weight: bolder;
+    font-size: 30px;
+    color: rgb(209, 127, 69);
+    margin-left: 10px;
+  }
+  .divider{
+    height: 2px;
+    background-color: black;
+    padding: 0px;
+  }
+  .nav1 {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    height: 55px;
+    background-color: rgba(0, 0, 0, 0.863);
+    display: flex;
+    align-items: center; 
+    padding: 0 15px;
+    z-index: 2; 
+  }
+  
+  .searchForm {
+    display: flex;
+    align-items: center;
+    margin: 0 auto; 
+  }
+  
+  .search {
+    margin-left: 0px;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 50px 0px 0px 50px;
+    width: 35vw;
+    height: 33px;
+    background-color: rgba(0, 0, 0, 0.863);
+  }
+  
+  .searchbtn {
+    padding: 5px 10px;
+    border: 2px solid black;
+    font-size: 16px;
+    margin-left: 5px;
+    background-color: #5f5f5f75;
+    color: white;
+    border-radius: 0px 50px 50px 0px ;
+    cursor: pointer;
+    width: 100px;
+  }
+  
+  .searchbtn:hover {
+    background-color: #2b2b2b;
+  }
+  
 </style>
 
-
-<div class="nav" style="height: 55px;background-color:rgba(0, 0, 0, 0.808);display:flex;align-items:center;">
-      <div style="margin-left:0px;">
-        <a href="/" style="font-weight:bolder;font-size:30px;color:rgb(209, 127, 69);margin-left:5px">Blogify</a>
-      </div>
-      <div>
-        <a aria-current="page" href="/">Home</a>
-      </div>
-      <% if (locals.user) { %>
-        <div>
-          <a href="/blog/add-new">Add Blog</a>
-        </div>
-        <div>
-          <a href="/user/info/<%= user._id %>" id="username"><%= locals.user.fullName %></a>
-        </div>
-        <div><a href="/user/logout">Logout</a></div>
-      <% } else {%>
-          <div >
-            <a href="/user/signup">Create Account</a>
-          </div>
-          <div >
-            <a href="/user/signin">Signin</a>
-          </div>
-      <% } %>
+<div class="nav1">
+    <a href="/" class="logo">Blogify</a>
+    <form class="searchForm" action="">
+      <input class="search" type="text" placeholder="Search...">
+      <button class="searchbtn" type="submit">Search</button>
+    </form>
 </div>
-
-
+<div class="nav2">
+  <div>
+    <a aria-current="page" href="/">Home</a>
+  </div>
+  <div class="divider"></div>
+  <% if (locals.user) { %>
+    <div>
+      <a href="/blog/add-new">Add Blog</a>
+    </div>
+    <div class="divider"></div>
+    <div>
+      <a href="/user/info/<%= user._id %>" id="username"><%= locals.user.fullName %></a>
+    </div>
+    <div class="divider"></div>
+    <div>
+      <a href="/user/logout">Logout</a>
+    </div>
+    <div class="divider"></div>
+  <% } else { %>
+    <div>
+      <a href="/user/signup">Create Account</a>
+    </div>
+    <div class="divider"></div>
+    <div>
+      <a href="/user/signin">Signin</a>
+    </div>
+    <div class="divider"></div>
+  <% } %>
+</div>
 <% if (locals.error) { %>
   <div style="height:40px;background-color:rgba(255, 0, 0, 0.311);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:larger">
-      <%= locals.error %>
+    <%= locals.error %>
   </div>
-  <% } %>
+<% } %>
+

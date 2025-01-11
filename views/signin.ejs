@@ -6,23 +6,25 @@
     <title>Signin</title>
     <style>
       body{
-        background-color: #DDD0C8;
       }
       p{
-        margin-top: 100px;
-        position:relative;
-        left: 730px;
         font-family: cursive;
         font-weight: 800;
         font-size:25px;
       }
       .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         background-color: white;
         border: 2px solid black;
         padding: 17px;
-        padding-top: 40px;
+        padding-top: 20px;
         width: 370px;
         border-radius: 10px;
+        margin-top: 180px;
+        margin-left: 44vw;
       }
       input{
         border-radius: 5px;
@@ -49,12 +51,11 @@
 
 <body>
   <%- include('./partials/nav') %>
-  <p style="width:70px">Signin</p>
-  <div class="container">
-    
-    <form action="/user/signin" method="post">
-        <div class="email" >
-          <label for="exampleInputEmail1" >Email address</label>
+    <div class="container">
+      <p >Signin</p>
+      <form action="/user/signin" method="post">
+        <div class="email">
+          <label for="exampleInputEmail1">Email address</label>
         </div>
         <input type="email" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" />
         <div id="emailHelp" style="margin-bottom: 25px;text-decoration: underline; ">
@@ -62,16 +63,16 @@
         </div>
 
         <div class="password">
-          <label for="exampleInputPassword1" >Password</label>
+          <label for="exampleInputPassword1">Password</label>
         </div>
-        <input name="password" type="password" id="exampleInputPassword1" style="margin-bottom: 25px;"/>
-      <div>
-        <button type="submit" class="btn">Submit</button>
-      </div>
-      
-    </form>
-  </div>
+        <input name="password" type="password" id="exampleInputPassword1" style="margin-bottom: 25px;" />
+        
+        <div>
+          <button type="submit" class="btn">Submit</button>
+        </div>
 
+      </form>
+    </div>
 
     <%- include('./partials/scripts') %>
 </body>
