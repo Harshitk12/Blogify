@@ -30,7 +30,6 @@ router.get("/:id", async (req, res) => {
   const comments = await Comment.find({ blogId: req.params.id }).populate(
     "createdBy"
   );
-
   return res.render("blog", {
     user: req.user,
     blog,
@@ -39,6 +38,7 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/comment/:blogId", async (req, res) => {
+  
   await Comment.create({
     content: req.body.content,
     blogId: req.params.blogId,
@@ -46,6 +46,17 @@ router.post("/comment/:blogId", async (req, res) => {
   });
   return res.redirect(`/blog/${req.params.blogId}`);
 });
+
+router.delete("/:blogId/comment/:commentId", async(req,res)=>{
+  try {
+    const {blogId,commentId} = req.params;
+    await Comment.findByIdAndDelete(commentId);
+    return res.status(200).json({ message: "Comment deleted successfully" });
+  } catch (error) {
+    console.error('Error deleting comment:', error);
+    res.status(500).json({ message: 'Failed to delete comment' });
+  }
+})
 
 router.post("/", upload.single("coverImage"), async (req, res) => {
   const { title, body } = req.body;

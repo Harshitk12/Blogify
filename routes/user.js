@@ -2,6 +2,9 @@ const { Router } = require("express");
 const User = require("../models/user");
 const { validateToken } = require("../services/authentication");
 const Blog = require("../models/blog");
+const multer = require("multer");
+const path = require("path");
+
 
 const router = Router();
 
@@ -46,5 +49,57 @@ router.post("/signup", async (req, res) => {
   });
   return res.redirect("/");
 });
+
+router.get("/info/:id", async (req,res)=>{
+  const blogs = await Blog.find({ createdBy: req.params.id })
+  const user = await User.findById(req.params.id);
+  return res.render("user",{
+    user,
+    currUser:req.user,
+    blogs
+  });
+})
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.resolve(`./public/images/`));
+  },
+  filename: function (req, file, cb) {
+    const fileName = `${Date.now()}-${file.originalname}`;
+    cb(null, fileName);
+  },
+});
+
+const upload = multer({ storage: storage });
+
+router.post("/info/:id",upload.single("profileImageURL"), async (req,res)=>{
+  const {fullName,email,age,profession}=req.body;
+  try{
+    const user = await User.findById(req.params.id);
+    if(fullName)
+      user.fullName=fullName;
+    if(email)
+      user.email = email;
+    if(age)
+      user.age=age;
+    if(profession)
+      user.profession=profession;
+    if(req.file)
+      user.profileImageURL=`/images/${req.file.filename}`;
+    await user.save();
+    if (!user) {
+      console.log("User not found");
+      return res.status(404).send("User not found");
+  }
+
+    const blogs = await Blog.find({ createdBy: req.params.id })
+  return res.redirect(`/user/info/${user._id}`);
+}
+catch (error) {
+  console.error("Error updating user:", error);
+  return res.status(500).send("Server error");
+}
+})
+
 
 module.exports = router;

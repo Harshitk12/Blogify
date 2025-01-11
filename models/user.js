@@ -13,6 +13,14 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
+    age:{
+      type:Number,
+      default:null
+    },
+    profession:{
+      type:String,
+      default:""
+    },
     salt: {
       type: String,
     },
@@ -36,15 +44,15 @@ const userSchema = new Schema(
 userSchema.pre("save", function (next) {
   const user = this;
 
-  if (!user.isModified("password")) return;
-
-  const salt = randomBytes(16).toString();
+  if (user.isModified("password")){
+    const salt = randomBytes(16).toString();
   const hashedPassword = createHmac("sha256", salt)
     .update(user.password)
     .digest("hex");
 
   this.salt = salt;
   this.password = hashedPassword;
+  }
 
   next();
 });

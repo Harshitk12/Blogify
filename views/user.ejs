@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Info</title>
+    <style>
+        
+        .container{
+            display: flex;
+            height: 350px;
+            align-items: center;
+            border: 2px solid black;
+            box-shadow:  5px 10px 10px rgb(34, 34, 34);
+        }
+        .userImg{
+            margin: 30px;
+            margin-left: 90px;
+            margin-right: 90px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .file-label{
+            margin-top: 18px;
+            height: 30px;
+            width: 110px;
+            border: 2px solid black;
+            background-color: rgb(2, 119, 252);
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-family: cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .userInfo{
+            margin-top:0px;
+            height: 100%;
+            padding-top: 120px;
+            position:relative;
+        }
+        .userInfo > *{
+            display: flex;
+            margin-bottom: 20px;
+            font-size: 25px;
+        }
+        input{
+            width: 50vw;
+            border-radius: 4px;
+            border: 2px solid rgba(0, 0, 0, 0.203);
+            height: 27px;
+            font-family: cursive;
+            font-weight: bold;
+            color: black;
+            font-size: 20px;
+        }
+        input::placeholder{
+            font-family: cursive;
+            font-weight: bold;
+            color: black;
+            font-size: 20px;
+        }
+        .editButton{
+            margin-top: 22px;
+            margin-bottom: 0px;
+            font-size: 15px;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            right: 2px;
+        }
+        #pfp {
+            opacity: 0;
+            position: absolute;
+            width: 0;
+            height: 0;
+          }
+          img{
+            border: 2px solid black;
+            border-radius: 50%;
+          }
+    </style>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+    
+    
+    <form class="container" action="/user/info/<%= user._id %>" method="post" enctype="multipart/form-data">
+            <div class="userImg">
+                <img src="<%= user.profileImageURL %>" width="250px" />
+                <% if(user._id==currUser._id) {%>
+                <div>
+                    <label for="pfp" class="file-label">Choose Image</label>
+                    <input type="file" id="pfp" name="profileImageURL">
+                </div>
+            </div>
+            <% } %>
+            <div class="userInfo"> 
+            <div class="info name">
+                <pre>Name :         </pre>
+                <input class="info" type="text" name="fullName" value="<%= user.fullName %>">
+            </div>
+            <div class="info email">
+                <pre>Email :        </pre>
+                <input class="info" type="text" name="email" value="<%= user.email %>">
+            </div>
+            <div class="info age">
+                <pre>Age :          </pre>
+                <input class="info" type="text" name="age" value="<%= user.age %>">
+            </div>
+            <div class="info profession">
+                <pre>Profession :   </pre>
+                <input class="info" type="text" name="profession" value="<%= user.profession %>">
+            </div>
+            <div>
+                <button class="file-label editButton">Edit</button>
+            </div>
+        </div> 
+    </form>
+        
+    
+
+
+<script>
+    const editButton=document.querySelector('.editButton');
+    const info=document.querySelectorAll('input');
+    info.forEach(input => (input.disabled = true));
+
+editButton.addEventListener('click', (event) => {
+    const areDisabled = info[0].disabled;
+
+    if (areDisabled) {
+        event.preventDefault(); 
+        info.forEach(input => (input.disabled = false));
+        editButton.innerText = "Submit";
+        editButton.type = "submit"; 
+    }
+});
+</script>
+</body>
+</html>

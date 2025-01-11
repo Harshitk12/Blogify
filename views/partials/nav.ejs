@@ -1,10 +1,15 @@
 <style>
+  *{
+    margin: 0px;
+  }
   .nav *{
     margin-right: 12px;
     margin-left: 12px;
     height: 100%;
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 1;
   }
   a{
     color: white;
@@ -12,6 +17,7 @@
     text-decoration:none;
     font-size: 17px;
     width: 100%;
+    cursor: pointer;
   }
   a:hover{
     opacity: 0.6;
@@ -19,7 +25,7 @@
 </style>
 
 
-<div class="nav" style="height: 50px;background-color:rgba(0, 0, 0, 0.808);display:flex;align-items:center;">
+<div class="nav" style="height: 55px;background-color:rgba(0, 0, 0, 0.808);display:flex;align-items:center;">
       <div style="margin-left:0px;">
         <a href="/" style="font-weight:bolder;font-size:30px;color:rgb(209, 127, 69);margin-left:5px">Blogify</a>
       </div>
@@ -31,7 +37,7 @@
           <a href="/blog/add-new">Add Blog</a>
         </div>
         <div>
-          <a href="#" id="username"><%= locals.user.fullName %></a>
+          <a href="/user/info/<%= user._id %>" id="username"><%= locals.user.fullName %></a>
         </div>
         <div><a href="/user/logout">Logout</a></div>
       <% } else {%>

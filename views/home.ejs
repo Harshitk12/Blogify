@@ -19,6 +19,10 @@
         border-top-left-radius:10px;
         border-top-right-radius: 10px;
       }
+      img{
+        border-top-left-radius:10px;
+        border-top-right-radius: 10px;
+      }
       .card:hover{
         cursor:pointer;
         opacity: 0.9;
@@ -41,7 +45,12 @@
         <% blogs.forEach(blog => { %>
           <div class="card" onclick="redirectToBlogPage('/blog/<%= blog._id %>')">
             <div style="height:195px;width:350px">
+              <% if(blog.coverImageURL.endsWith(".mp4")) {%>
               <video src="<%= blog.coverImageURL %>"  style="height:195px" loop muted></video>
+              <% }
+                else {%>
+                <img src="<%= blog.coverImageURL %>"  style="height:195px" >
+                <% } %>
             </div>  
             <div class="title">
               <h5 ><%= blog.title %></h5>
