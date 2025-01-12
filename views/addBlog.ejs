@@ -3,14 +3,79 @@
   <head>
     <%- include('./partials/head') %>
     <title>Add New Blog</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f8f9fa;
+        }
+  
+        .blogcontainer {
+          max-width: 85vw;
+          padding: 20px;
+          background: #fff;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          margin-top: 55px;
+          margin-left: 15vw;
+        }
+  
+        .blogform {
+          display: flex;
+          flex-direction: column;
+        }
+  
+        .form-label {
+          font-weight: bold;
+          margin-bottom: 8px;
+          color: #333;
+        }
+  
+        .form-control {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 16px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 14px;
+          box-sizing: border-box;
+        }
+  
+        .form-control:focus {
+          border-color: #007bff;
+          outline: none;
+          box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
+        }
+  
+        textarea.form-control {
+          height: 320px;
+          resize: vertical;
+        }
+  
+        .btn {
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          background-color:  #515050;
+          color: white;
+          font-size: 16px;
+          cursor: pointer;
+        }
+  
+        .btn:hover {
+          background-color: rgba(0, 0, 0, 0.808);
+          color: white;
+        }
+    </style>
   </head>
   <body>
     <%- include('./partials/nav') %>
 
-    <div class="container mt-3">
-      <form action="/blog" method="post" enctype="multipart/form-data">
-        <div class="mb-3">
-          <label for="coverImage" class="form-label">Cover Image</label>
+    <div class="blogcontainer">
+      <form class="blogform" action="/blog" method="post" enctype="multipart/form-data">
+        <div>
+          <label for="coverImage" class="form-label">Cover Image/Video</label>
           <input
             type="file"
             class="form-control"
@@ -19,7 +84,7 @@
             aria-describedby="coverImage"
           />
         </div>
-        <div class="mb-3">
+        <div>
           <label for="title" class="form-label">Title</label>
           <input
             type="text"
@@ -29,12 +94,12 @@
             aria-describedby="title"
           />
         </div>
-        <div class="mb-3">
-          <label for="body">Body</label>
-          <textarea name="body" class="form-control" id="body" height="100px"></textarea>
+        <div>
+          <label for="body" class="form-label">Body</label>
+          <textarea name="body" class="form-control" id="body"></textarea>
         </div>
-        <div class="mb-3">
-          <button class="btn btn-primary">Submit</button>
+        <div>
+          <button type="submit" class="btn">Submit</button>
         </div>
       </form>
     </div>
