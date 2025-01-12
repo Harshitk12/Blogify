@@ -5,27 +5,30 @@
     <title>Homepage</title>
     <style>
       .card{
-        height: 250px; width:349px; 
-        border: 2px solid black;
-        margin: 1vw;
+        height: 300px; width:415px; 
+        border: 2px solid rgba(0, 0, 0, 0.557);
+        margin: 0.25vw;
+        margin-bottom: 8px;
         display:inline-block;
-        box-shadow:  5px 10px 10px rgb(34, 34, 34);
+        
         border-radius: 10px;
       }
       video{
         border-top-left-radius:10px;
         border-top-right-radius: 10px;
+        width: 413px;
       }
-      img{
+      .coverimg{
         border-top-left-radius:10px;
         border-top-right-radius: 10px;
+        width: 412px;
       }
       .card:hover{
         cursor:pointer;
         opacity: 0.9;
       }
       .title{
-        height:52px;
+        height:68px;
         display:flex;
         justify-content:center;
         align-items:center;
@@ -36,16 +39,16 @@
   <body>
     <%- include('./partials/nav') %>
     
-      <div class="blogscontainer" style="display: inline-block;margin-left:19.5vw;margin-top:60px">
+      <div class="blogscontainer" style="display: inline-block;margin-left:15.7vw;margin-top:60px">
         
         <% blogs.forEach(blog => { %>
           <div class="card" onclick="redirectToBlogPage('/blog/<%= blog._id %>')">
-            <div style="height:195px;width:350px">
+            <div style="height:232px;width:415px">
               <% if(blog.coverImageURL.endsWith(".mp4")) {%>
-              <video src="<%= blog.coverImageURL %>"  style="height:195px" loop muted></video>
+              <video src="<%= blog.coverImageURL %>"  style="height:232px" loop muted></video>
               <% }
                 else {%>
-                <img src="<%= blog.coverImageURL %>"  style="height:195px" >
+                <img class="coverimg" src="<%= blog.coverImageURL %>"  style="height:232px" >
                 <% } %>
             </div>  
             <div class="title">
