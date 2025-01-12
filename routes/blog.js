@@ -40,6 +40,18 @@ router.get("/:id", async (req, res) => {
   });
 });
 
+router.delete("/:blogId", async(req,res)=>{
+  try {
+    const blogId= req.params.blogId;
+    await Comment.deleteMany({blogId});
+    await Blog.findByIdAndDelete(blogId);
+    return res.status(200).json({ message: 'Blog deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting blog:', error);
+    res.status(500).json({ message: 'Failed to delete blog' });
+  }
+})
+
 router.post("/comment/:blogId", async (req, res) => {
   
   await Comment.create({
@@ -53,6 +65,7 @@ router.post("/comment/:blogId", async (req, res) => {
 router.delete("/:blogId/comment/:commentId", async(req,res)=>{
   try {
     const {blogId,commentId} = req.params;
+
     await Comment.findByIdAndDelete(commentId);
     return res.status(200).json({ message: "Comment deleted successfully" });
   } catch (error) {

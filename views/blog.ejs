@@ -225,6 +225,28 @@
       });
     });
 
+    document.querySelector('.deleteBlog')
+    .addEventListener('click', async (e) => {
+        const target = e.target.closest('svg');
+        const blogId = target.dataset.blogid;
+
+        const confirmation = confirm('Are you sure you want to delete this blog?');
+        if (!confirmation) return;
+
+        try {
+          const response = await fetch(`/blog/${blogId}`, {
+            method: 'DELETE',
+          });
+          if (response.ok) {
+            window.location.href = '/';
+          } else {
+            alert('Error deleting blog');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Failed to delete blog');
+        }
+      });
     
   </script>
 
