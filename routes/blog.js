@@ -85,4 +85,23 @@ router.post("/", upload.single("coverImage"), async (req, res) => {
   return res.redirect(`/blog/${blog._id}`);
 });
 
+
+router.post("/search", async (req, res) => {
+  const searchQuery = req.body.blogName.trim(); 
+  try {
+    const blogs = await Blog.find({
+      title: { $regex: searchQuery, $options: "i" }, 
+    });
+
+    res.render("home", {
+      user: req.user,
+      searchedBlogs: blogs, 
+    });
+  } catch (error) {
+    console.error("Error searching blogs:", error);
+    res.status(500).send("Something went wrong");
+  }
+});
+
+
 module.exports = router;

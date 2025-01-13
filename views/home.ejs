@@ -16,7 +16,7 @@
       video{
         border-top-left-radius:10px;
         border-top-right-radius: 10px;
-        width: 413px;
+        width: 412px;
       }
       .coverimg{
         border-top-left-radius:10px;
@@ -34,13 +34,32 @@
         align-items:center;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
+    
     </style>
   </head>
   <body>
     <%- include('./partials/nav') %>
-    
+
+    <% if(locals.searchedBlogs) {%>
+    <div class="blogscontainer" style="display: inline-block;margin-left:15.7vw;margin-top:60px">
+      <% searchedBlogs.forEach(blog => { %>
+        <div class="card" onclick="redirectToBlogPage('/blog/<%= blog._id %>')">
+          <div style="height:232px;width:415px">
+            <% if(blog.coverImageURL.endsWith(".mp4")) {%>
+            <video src="<%= blog.coverImageURL %>"  style="height:232px" loop muted></video>
+            <% }
+              else {%>
+              <img class="coverimg" src="<%= blog.coverImageURL %>"  style="height:232px" >
+              <% } %>
+          </div>  
+          <div class="title">
+            <h5 ><%= blog.title %></h5>
+          </div>
+        </div>
+      <% })} %>
+    </div>
+    <% if(locals.blogs) {%>
       <div class="blogscontainer" style="display: inline-block;margin-left:15.7vw;margin-top:60px">
-        
         <% blogs.forEach(blog => { %>
           <div class="card" onclick="redirectToBlogPage('/blog/<%= blog._id %>')">
             <div style="height:232px;width:415px">
@@ -57,7 +76,7 @@
           </div>
         <% }) %>
       </div>
-
+      <% } %>
       <%- include('./partials/scripts') %>
       
     <script>

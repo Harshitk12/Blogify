@@ -190,6 +190,22 @@ editButton.addEventListener('click', (event) => {
         editButton.type = "submit"; 
     }
 });
+
+function redirectToBlogPage(path){
+    window.location.href = path;
+  }
+
+  const videos = document.querySelectorAll('video');
+  videos.forEach(video => {
+    video.addEventListener('mouseenter', () => {
+      video.play(); 
+    });
+  
+    video.addEventListener('mouseleave', () => {
+      video.pause(); 
+      video.currentTime = 0; 
+    });
+  });
 </script> 
 </body>
 </html>
