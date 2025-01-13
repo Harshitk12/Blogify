@@ -92,8 +92,8 @@
   }
   .inveter{
     filter: invert(1);
+    cursor: pointer;
   }
- 
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <div class="nav1">
@@ -110,7 +110,7 @@
   <div class="divider"></div>
   <div class="divider"></div>
   <div class="navIcon">
-    <span class="material-symbols-outlined inveter">
+    <span class="material-symbols-outlined inveter" onclick="redirectToPage('/')">
       home
       </span>
     <a aria-current="page" href="/">Home</a>
@@ -118,21 +118,21 @@
   <div class="divider"></div>
   <% if (locals.user) { %>
     <div class="navIcon">
-      <span class="material-symbols-outlined inveter">
+      <span class="material-symbols-outlined inveter" onclick="redirectToPage('/blog/add-new')">
         add_card
         </span>
       <a href="/blog/add-new">Add Blog</a>
     </div>
     <div class="divider"></div>
     <div class="navIcon">
-      <span class="material-symbols-outlined inveter">
+      <span class="material-symbols-outlined inveter" onclick="redirectToPage('/user/info/<%= user._id %>')">
         account_circle
         </span>
       <a href="/user/info/<%= user._id %>" id="username"><%= locals.user.fullName %></a>
     </div>
     <div class="divider"></div>
     <div class="navIcon">
-      <span class="material-symbols-outlined inveter">
+      <span class="material-symbols-outlined inveter" onclick="redirectToPage('/user/logout')">
         logout
         </span>
       <a href="/user/logout">Logout</a>
@@ -155,3 +155,8 @@
   </div>
 <% } %>
 
+<script>
+  function redirectToPage(path){
+    window.location.href = path;
+  }
+</script>
