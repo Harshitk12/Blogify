@@ -6,25 +6,26 @@
   .nav2 {
     width: 15vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.863);
+    background-color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
+    gap: 30px;
     position: fixed;
     top: 55px;
     left: 0;
     z-index: 1;
- 
+  
   }
   .nav2 * {
-    width: 100%;
-    margin: 0;
-    padding: 7px 15px;
+    /* width: 100%; */
+    margin: 0px 7px;
+    gap: 12px;
     display: flex;
     align-items: center;
   }
   a {
     color: white;
-    font-family: 'Lucida Sans';
+    font-family: 'Times New Roman', Times, serif;
     text-decoration: none;
     font-size: 21px;
     width: 200px;
@@ -37,7 +38,6 @@
     font-weight: bolder;
     font-size: 30px;
     color: rgb(209, 127, 69);
-    margin-left: 10px;
   }
   .divider{
     height: 2px;
@@ -90,31 +90,51 @@
   .searchbtn:hover {
     background-color: #2b2b2b;
   }
-  
+  .inveter{
+    filter: invert(1);
+  }
+ 
 </style>
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <div class="nav1">
-    <a href="/" class="logo">Blogify</a>
+  
+    <a href="/" class="logo"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="60" height="60" viewBox="0,0,256,256">
+    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M37,42h-26c-2.761,0 -5,-2.239 -5,-5v-26c0,-2.761 2.239,-5 5,-5h26c2.761,0 5,2.239 5,5v26c0,2.761 -2.239,5 -5,5z" fill="#d17f45"></path><path d="M33.5,22h-1c-0.828,0 -1.5,-0.672 -1.5,-1.5v-0.5c0,-3.866 -3.134,-7 -7,-7h-4c-3.866,0 -7,3.134 -7,7v8c0,3.866 3.134,7 7,7h8c3.866,0 7,-3.134 7,-7v-4.5c0,-0.828 -0.672,-1.5 -1.5,-1.5zM20,19h5c0.553,0 1,0.448 1,1c0,0.552 -0.447,1 -1,1h-5c-0.553,0 -1,-0.448 -1,-1c0,-0.552 0.447,-1 1,-1zM28,29h-8c-0.553,0 -1,-0.448 -1,-1c0,-0.552 0.447,-1 1,-1h8c0.553,0 1,0.448 1,1c0,0.552 -0.447,1 -1,1z" fill="#ffffff"></path></g></g>
+    </svg>Blogify</a>
     <form class="searchForm" action="/blog/search" method="POST">
       <input class="search" type="text" name="blogName" placeholder="Search..." required>
       <button class="searchbtn" type="submit">Search</button>
     </form>
 </div>
 <div class="nav2">
-  <div>
+  <div class="divider"></div>
+  <div class="divider"></div>
+  <div class="navIcon">
+    <span class="material-symbols-outlined inveter">
+      home
+      </span>
     <a aria-current="page" href="/">Home</a>
   </div>
   <div class="divider"></div>
   <% if (locals.user) { %>
-    <div>
+    <div class="navIcon">
+      <span class="material-symbols-outlined inveter">
+        add_card
+        </span>
       <a href="/blog/add-new">Add Blog</a>
     </div>
     <div class="divider"></div>
-    <div>
+    <div class="navIcon">
+      <span class="material-symbols-outlined inveter">
+        account_circle
+        </span>
       <a href="/user/info/<%= user._id %>" id="username"><%= locals.user.fullName %></a>
     </div>
     <div class="divider"></div>
-    <div>
+    <div class="navIcon">
+      <span class="material-symbols-outlined inveter">
+        logout
+        </span>
       <a href="/user/logout">Logout</a>
     </div>
     <div class="divider"></div>
@@ -129,10 +149,6 @@
     <div class="divider"></div>
   <% } %>
 </div>
-
-
-
-
 <% if (locals.error) { %>
   <div style="height:40px;background-color:rgba(255, 0, 0, 0.311);display:flex;align-items:center;justify-content:center;font-weight:500;font-size:larger">
     <%= locals.error %>

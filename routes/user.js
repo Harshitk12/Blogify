@@ -93,8 +93,8 @@ router.post("/info/:id",upload.single("profileImageURL"), async (req,res)=>{
       console.log("User not found");
       return res.status(404).send("User not found");
   }
-
-    const blogs = await Blog.find({ createdBy: req.params.id })
+  
+  const blogs = await Blog.find({ createdBy: req.params.id })
   return res.redirect(`/user/info/${user._id}`);
 }
 catch (error) {
