@@ -81,21 +81,23 @@
       padding: 8px;
       font-size: 16px;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 10px;
     }
 
     form button {
+      margin-left: 5px;
+      height: 43px;
       padding: 8px 12px;
       font-size: 16px;
       color: white;
-      background-color: #007bff;
+      background-color: rgba(0, 0, 0, 0.801);
       border: none;
-      border-radius: 4px;
+      border-radius: 10px;
       cursor: pointer;
     }
 
     form button:hover {
-      background-color: #0056b3;
+      background-color: rgb(0, 0, 0);
     }
 
     .icon {
@@ -174,7 +176,7 @@
         <form action="/blog/comment/<%= blog._id %>" method="post">
           <div class="mb-3">
             <input type="text" name="content" placeholder="Enter your comment" />
-            <button type="submit">Add</button>
+            <button class="commentbtn" type="submit">Add</button>
           </div>
         </form>
       <% } %>
