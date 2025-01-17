@@ -11,7 +11,7 @@
         margin-bottom: 8px;
         display:inline-block;
         
-        border-radius: 10px;
+        /* border-radius: 10px; */
       }
       video{
         border-top-left-radius:10px;
@@ -26,11 +26,24 @@
       .card:hover{
         cursor:pointer;
         opacity: 0.9;
+        animation: rotatecard 1.5s ease-in-out forwards;
+        animation-direction: alternate;
+        
+      }
+      @keyframes rotatecard {
+        0% {
+        transform: scale(1) translate3d(0, 0, 0); 
+       }
+       
+    100% {
+      transform: scale(1.05) translate3d(0, 0, 150px); 
+    }
       }
       .title{
         height:68px;
         display:flex;
-        justify-content:center;
+        justify-content:start;
+        margin-left: 10px;
         align-items:center;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
