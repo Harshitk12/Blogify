@@ -24,6 +24,35 @@ body {
     gap: 20px;
     align-items: center;
     width:fit-content;
+    animation: example1 1s linear forwards;
+}
+@keyframes example {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(50px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes example1 {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-50px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 .logoname{
     font-size: 50px;
@@ -38,6 +67,7 @@ body {
     top: 305px;
     left: 290px;
     width: fit-content;
+    animation: example 1s linear forwards;
 }
 .btn1{
     display: flex;
@@ -51,6 +81,7 @@ body {
     width: 135px;
     background-color: #FFD93B;
     border: 3px solid black;
+    animation: example 1s linear forwards;
 }
 .btn2{
     display: flex;
@@ -64,6 +95,21 @@ body {
     width: 135px;
     background-color: black;
     border: 3px solid #FFD93B;
+    animation: example 1s linear forwards;
+}
+@keyframes example3 {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(50px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 .brushStroke{
     position: relative;
@@ -71,6 +117,7 @@ body {
     left: 1051px;
     width: 200px;
     z-index: 1;
+    animation: example3 1s linear forwards;
 }
 .icons{
     position: relative;
@@ -88,7 +135,11 @@ body {
     margin: 0.5vw;
     margin-bottom: 8px;
     display:inline-block;
-    border-radius: 10px;
+    /* border-radius: 10px; */
+    animation: example2 1s linear forwards;
+  }
+  h1{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   video{
     border-top-left-radius:10px;
