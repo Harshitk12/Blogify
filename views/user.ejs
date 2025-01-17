@@ -123,13 +123,12 @@
     <form class="usercontainer" action="/user/info/<%= user._id %>" method="post" enctype="multipart/form-data">
             <div class="userImg">
                 <img class="pfp" src="<%= user.profileImageURL %>" width="250px" />
-                <% if(user._id==currUser._id) {%>
                 <div>
                     <label  for="pfp" class="file-label">Choose Image</label>
                     <input class="info" type="file" id="pfp" name="profileImageURL">
                 </div>
             </div>
-            <% } %>
+
             <div class="userInfo"> 
             <div class=" name">
                 <pre>Name :         </pre>
@@ -152,7 +151,7 @@
             </div>
         </div> 
     </form>
-    <h1 style="margin-left: 16vw;margin-top:20px;font-weight:bold">Blogs</h1>
+    <h1 style="margin-left: 16vw;margin-top:20px;font-weight:bold">Blogs By <%= user.fullName  %></h1>
     <div style="margin-left: 15vw;height: 2px;background-color:black;"></div>
     <div class="creator_Blogs" style="display: inline-block;margin-left:15.5vw;margin-top:10px">
         <% blogs.forEach(blog => { %>
@@ -206,6 +205,8 @@ function redirectToBlogPage(path){
       video.currentTime = 0; 
     });
   });
+
+  
 </script> 
 </body>
 </html>

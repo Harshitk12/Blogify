@@ -1,4 +1,4 @@
-require("dotenv").config();
+
 
 const path = require("path");
 const express = require("express");
@@ -31,6 +31,10 @@ app.use(checkForAuthenticationCookie("token"));
 app.use(express.static(path.resolve("./public")));
 
 app.get("/", async (req, res) => {
+  res.sendFile(__dirname+"/views/land.html");
+});
+
+app.get("/home", async (req, res) => {
   const allBlogs = await Blog.find({});
   res.render("home", {
     user: req.user,
