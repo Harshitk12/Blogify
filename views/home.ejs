@@ -93,7 +93,7 @@
     <%- include('./partials/nav') %>
 
     <% if(locals.searchedBlogs) {%>
-    <div class="blogscontainer" style="display: inline-block;margin-left:16.7vw;margin-top:60px">
+    <div class="blogscontainer" style="display: inline-block;margin-left:21.7vw;margin-top:60px">
       <% searchedBlogs.forEach(blog => { %>
         <div class="card" onclick="redirectToBlogPage('/blog/<%= blog._id %>')">
           <div style="height:232px;width:415px">
@@ -104,9 +104,13 @@
               <img class="coverimg" src="<%= blog.coverImageURL %>"  style="height:232px" >
               <% } %>
               </div>  
-              <div class="title">
-                <h5 ><%= blog.title %></h5>
-              </div>
+              <div class="cardinfo">
+                  
+                  <div class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit amet nemo, commodi ullam, deserunt iste at, dolorem id illum adipisci nesciunt! Fugit facere hic possimus nam voluptatibus nisi, omnis aut nihil quas, officia nulla laudantium maxime cum adipisci dicta dolor!....</div>
+                  <div class="title">
+                   - <%= blog.title %>
+                  </div>
+                  </div>
         </div>
       <% })} %>
     </div>
