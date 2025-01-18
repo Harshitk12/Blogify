@@ -3,78 +3,140 @@
 
 <head>
   <%- include('./partials/head') %>
-    <title>Signin</title>
+    <title>Signup</title>
     <style>
-      body{
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-      p{
-        font-family: cursive;
-        font-weight: 800;
-        font-size:25px;
-      }
-      .container {
+
+      body {
+        font-family: 'Poppins', sans-serif;
         display: flex;
-        flex-direction: column;
-        align-items: center;
         justify-content: center;
-        background-color: white;
-        border: 2px solid black;
-        padding: 17px;
-        padding-top: 20px;
-        width: 370px;
-        border-radius: 10px;
-        margin-top: 180px;
-        margin-left: 44vw;
+        align-items: center;
+        min-height: 100vh;
+        background-image: url('/images/2.png');
+        background-repeat: no-repeat;
+        background-size: cover;
       }
-      input{
+
+      .container {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+      }
+
+      .container p {
+        font-size: 28px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .container label {
+        font-size: 14px;
+        color: #555;
+        display: block;
+        text-align: left;
+        margin-bottom: 8px;
+      }
+
+      .container input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
         border-radius: 5px;
+        font-size: 14px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .container input:focus {
+        border-color: #ff5722;
+        outline: none;
+        box-shadow: 0 0 5px rgba(255, 87, 34, 0.5);
+      }
+
+      #emailHelp {
+        font-size: 12px;
+        color: #888;
+        text-align: left;
+        margin-top: -15px;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: inline-block;
         width: 100%;
+        padding: 12px;
+        background: linear-gradient(90deg, #f9d223, #f6e37a);
+        color: rgb(0, 0, 0);
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
       }
-      .email,.password{
-        font-family:cursive;
-        font-weight: 800;
-        margin-bottom: 11px;
-      }
-      .btn{
-        height: 40px;
-        width: 100%;
-        color: white;
-        background-color: rgb(34, 34, 34);
-      }
+
       .btn:hover {
-        background-color: rgba(34, 34, 34, 0.811);  
-        color:white;
-        cursor: pointer; 
+        background: #e6d219;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Add responsive design */
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px;
+        }
+
+        .container p {
+          font-size: 24px;
+        }
+      }
+      .bck{
+        background-color: rgba(0, 0, 0, 0.66);
+        position: absolute; /* Absolute positioning */
+        top: 0;
+        left: 0;
+        width: 100%; /* Cover the full width */
+        height: 100%; /* Cover the full height */
+        z-index: -1;
       }
     </style>
 </head>
 
 <body>
-  <%- include('./partials/nav') %>
-    <div class="container">
-      <p >Signin</p>
-      <form action="/user/signin" method="post">
-        <div class="email">
-          <label for="exampleInputEmail1">Email address</label>
-        </div>
-        <input type="email" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" />
-        <div id="emailHelp" style="margin-bottom: 25px;text-decoration: underline; ">
-          We'll never share your email with anyone else.
-        </div>
+  <div class="container">
+    <p>Signin</p>
+    <form action="/user/signin" method="post">
 
-        <div class="password">
-          <label for="exampleInputPassword1">Password</label>
-        </div>
-        <input name="password" type="password" id="exampleInputPassword1" style="margin-bottom: 25px;" />
-        
-        <div>
-          <button type="submit" class="btn">Submit</button>
-        </div>
+      <div>
+        <label for="exampleInputEmail1">Email Address</label>
+        <input type="email" name="email" id="exampleInputEmail1" placeholder="Enter your email" required />
+        <div id="emailHelp">We'll never share your email with anyone else.</div>
+      </div>
 
-      </form>
-    </div>
+      <div>
+        <label for="exampleInputPassword1">Password</label>
+        <input name="password" type="password" id="exampleInputPassword1" placeholder="Enter your password" required />
+      </div>
 
-    <%- include('./partials/scripts') %>
+      <div>
+        <button type="submit" class="btn">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div class="bck"></div>
+  <%- include('./partials/scripts') %>
 </body>
+
 
 </html>

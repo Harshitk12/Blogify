@@ -1,192 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        
-body {
-        
-  background-color: black;
-}
-.header{
-    background-image: url('/images/2.png'); 
-    background-repeat: no-repeat; 
-    width: 1500px;
-    height: 750px;
-}
-.logo{
-    display: flex;
-    position: relative;
-    top: 310px;
-    left: 279px;
-    gap: 20px;
-    align-items: center;
-    width:fit-content;
-    animation: example1 1s linear forwards;
-}
-@keyframes example {
-    0% {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-    50% {
-        transform: translateY(50px);
-        opacity: 0.5;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-@keyframes example1 {
-    0% {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
-    50% {
-        transform: translateY(-50px);
-        opacity: 0.5;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-.logoname{
-    font-size: 50px;
-    font-weight: bolder;
-    color: #FFD93B;
-}
-.info{
-    position: relative;
-    color: #FFD93B;
-    font-size: 36px;
-    font-weight: bold;
-    top: 305px;
-    left: 290px;
-    width: fit-content;
-    animation: example 1s linear forwards;
-}
-.btn1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    top: 196px;
-    left: 790px;
-    color: black;
-    font-size: 33px;
-    width: 135px;
-    background-color: #FFD93B;
-    border: 3px solid black;
-    animation: example 1s linear forwards;
-}
-.btn2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    top: 154px;
-    left: 952px;
-    color: #FFD93B;
-    font-size: 33px;
-    width: 135px;
-    background-color: black;
-    border: 3px solid #FFD93B;
-    animation: example 1s linear forwards;
-}
-@keyframes example3 {
-    0% {
-        transform: translateX(100px);
-        opacity: 0;
-    }
-    50% {
-        transform: translateX(50px);
-        opacity: 0.5;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-.brushStroke{
-    position: relative;
-    top: 331px;
-    left: 1051px;
-    width: 200px;
-    z-index: 1;
-    animation: example3 1s linear forwards;
-}
-.icons{
-    position: relative;
-    top: -83px;
-    left: 96px;
-    z-index: 3;
-}
-.icons *{
-    padding-left: 23px;
-}
+        * {
+            color: white;
+        }
 
-.card{
-    height: 250px; width:350px; 
-    border: 2px solid rgba(0, 0, 0, 0.557);
-    margin: 0.5vw;
-    margin-bottom: 8px;
-    display:inline-block;
-    /* border-radius: 10px; */
-    animation: example2 1s linear forwards;
-  }
-  h1{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
-  video{
-    border-top-left-radius:10px;
-    border-top-right-radius: 10px;
-    width:350px; 
-  }
-  .title{
-    color: #FFD93B;
-    height:68px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
+        body {
 
-.footer{
-    padding-top: 34px;
-    position: relative;
-    bottom: -400px;
-    color: white;
-    border-top: 2px solid white;
-    display: flex;
-    gap: 50px;
-    font-size: 20px;
-    align-items: baseline;
-    justify-content: space-around;
-}
-a{
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
-}
-</style>
+            background-color: black;
+        }
+
+        .header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.681), rgba(0, 0, 0, 0.549)), url('images/2.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 98vw;
+            height: 650px;
+        }
+
+        .logo {
+            display: flex;
+            position: relative;
+            top: 210px;
+            left: 279px;
+            gap: 20px;
+            align-items: center;
+            width: fit-content;
+            animation: example1 1s linear forwards;
+        }
+
+        @keyframes example {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+
+            50% {
+                transform: translateY(50px);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes example1 {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+
+            50% {
+                transform: translateY(-50px);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .logoname {
+            font-size: 50px;
+            font-weight: bolder;
+            color: #FFD93B;
+        }
+
+        .info {
+            position: relative;
+            color: #FFD93B;
+            font-size: 36px;
+            font-weight: bold;
+            top: 205px;
+            left: 290px;
+            width: fit-content;
+            animation: example 1s linear forwards;
+        }
+
+        .btn1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: 96px;
+            left: 790px;
+            color: black;
+            font-size: 33px;
+            width: 135px;
+            background: linear-gradient(90deg, #f9d423, #f6e27a);
+            border: 3px solid black;
+            border-radius:10px ;
+            animation: example 1s linear forwards;
+            text-decoration: none;
+        }
+
+        .btn2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: 54px;
+            left: 952px;
+            color: #f9d423;
+            font-size: 33px;
+            width: 135px;
+            background-color: black;
+            border: 3px solid #FFD93B;
+            border-radius:10px ;
+            animation: example 1s linear forwards;
+            text-decoration: none;
+        }
+
+        @keyframes example3 {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+
+            50% {
+                transform: translateX(50px);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .brushStroke {
+            position: relative;
+            top: 231px;
+            left: 1051px;
+            width: 200px;
+            z-index: 1;
+            animation: example3 1s linear forwards;
+        }
+
+        .icons {
+            position: relative;
+            top: -83px;
+            left: 96px;
+            z-index: 3;
+        }
+
+        .icons * {
+            padding-left: 23px;
+        }
+
+        .divider {
+            height: 4px;
+            background-color: rgb(62, 62, 62);
+          }
+
+        .card {
+            height: 250px;
+            width: 350px;
+            border: 2px solid rgba(0, 0, 0, 0.557);
+            margin: 0.5vw;
+            margin-bottom: 23px;
+            display: inline-block;
+            border-radius: 10px; 
+            animation: example2 1s linear forwards;
+        }
+
+        h1 {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        video {
+            border-radius:10px;
+            width: 350px;
+        }
+
+        .title {
+            color: #FFD93B;
+            height: 68px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .joinOthers {
+            height: 600px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.777), rgba(0, 0, 0, 0.801)), url('images/joinOthers.png');
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+            position: relative;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+        }
+        
+        .joinOthers h2 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #f9d423;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1s ease-in-out;
+        }
+        
+        .joinOthers p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            max-width: 600px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-in-out;
+        }
+        
+        .joinOthers .btn3 {
+            padding: 15px 35px;
+            font-size: 1.5rem;
+            color: black;
+            background: linear-gradient(90deg, #f9d423, #f6e27a);
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0px 10px 20px rgba(255, 126, 95, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        
+        .joinOthers .btn3:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 30px rgba(255, 126, 95, 0.6);
+            background: linear-gradient(90deg, #feb47b, #ff7e5f);
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }  
+
+        .footer {
+            background-color: #000000; /* Elegant dark blue-gray background */
+            color: #ecf0f1; /* Light gray text for contrast */
+            padding: 30px 20px; /* Extra padding for spaciousness */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Even spacing between elements */
+            text-align: center;
+            font-family: Arial, sans-serif; /* Clean, modern font */
+            border-top: 2px solid #34495e; /* Subtle border for separation */
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap; /* Wrap items on smaller screens */
+            justify-content: center; /* Center items horizontally */
+            gap: 15px; /* Spacing between links */
+        }
+        
+        .footer-links a {
+            color: #1abc9c; /* Vibrant teal for links */
+            text-decoration: none; /* Remove underline */
+            font-size: 1rem; /* Standard link size */
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+        
+        .footer-links a:hover {
+            color: #16a085; /* Slightly darker teal on hover */
+        }
+        
+        .mail p {
+            margin: 5px 0; /* Space between lines */
+            font-size: 1rem; /* Consistent font size */
+        }
+        
+        .mail a {
+            color: #3498db; /* Bright blue for email links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .mail a:hover {
+            color: #297fb91d; /* Slightly darker blue on hover */
+        }
+              
+    </style>
 </head>
+
 <body>
     <div class="header">
-        
+
         <div class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256">
-                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M37,42h-26c-2.761,0 -5,-2.239 -5,-5v-26c0,-2.761 2.239,-5 5,-5h26c2.761,0 5,2.239 5,5v26c0,2.761 -2.239,5 -5,5z" fill="#ffd93b"></path><path d="M33.5,22h-1c-0.828,0 -1.5,-0.672 -1.5,-1.5v-0.5c0,-3.866 -3.134,-7 -7,-7h-4c-3.866,0 -7,3.134 -7,7v8c0,3.866 3.134,7 7,7h8c3.866,0 7,-3.134 7,-7v-4.5c0,-0.828 -0.672,-1.5 -1.5,-1.5zM20,19h5c0.553,0 1,0.448 1,1c0,0.552 -0.447,1 -1,1h-5c-0.553,0 -1,-0.448 -1,-1c0,-0.552 0.447,-1 1,-1zM28,29h-8c-0.553,0 -1,-0.448 -1,-1c0,-0.552 0.447,-1 1,-1h8c0.553,0 1,0.448 1,1c0,0.552 -0.447,1 -1,1z" fill="#ffffff"></path></g></g>
+                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                    font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                    style="mix-blend-mode: normal">
+                    <g transform="scale(5.33333,5.33333)">
+                        <path
+                            d="M37,42h-26c-2.761,0 -5,-2.239 -5,-5v-26c0,-2.761 2.239,-5 5,-5h26c2.761,0 5,2.239 5,5v26c0,2.761 -2.239,5 -5,5z"
+                            fill="#ffd93b"></path>
+                        <path
+                            d="M33.5,22h-1c-0.828,0 -1.5,-0.672 -1.5,-1.5v-0.5c0,-3.866 -3.134,-7 -7,-7h-4c-3.866,0 -7,3.134 -7,7v8c0,3.866 3.134,7 7,7h8c3.866,0 7,-3.134 7,-7v-4.5c0,-0.828 -0.672,-1.5 -1.5,-1.5zM20,19h5c0.553,0 1,0.448 1,1c0,0.552 -0.447,1 -1,1h-5c-0.553,0 -1,-0.448 -1,-1c0,-0.552 0.447,-1 1,-1zM28,29h-8c-0.553,0 -1,-0.448 -1,-1c0,-0.552 0.447,-1 1,-1h8c0.553,0 1,0.448 1,1c0,0.552 -0.447,1 -1,1z"
+                            fill="#ffffff"></path>
+                    </g>
+                </g>
             </svg>
             <div class="logoname">
                 BLOGIFY
             </div>
         </div>
         <div class="info">
-            The Journey Of Blogging <br> Begins Here 
+            The Journey Of Blogging <br> Begins Here
         </div>
         <a class="btn1" href="/user/signin">Sign in</a>
         <a class="btn2" href="/user/signup">Sign up</a>
@@ -200,69 +357,79 @@ a{
             </div>
         </div>
     </div>
+    <div class="divider"></div>
 
-    <h1 style="color: #FFD93B; margin-left: 10px;">Explore</h1>
+    <h1 style="color: #FFD93B; margin: 10px;">Explore</h1>
+    <div class="divider"></div>
     <div class="blogscontainer">
-        
     </div>
+    <div class="divider"></div>
 
+    <div class="joinOthers">
+        <h2 style="color: #f9d423;">Join millions of others</h2>
+        <p style="color: #ffd001;">Whether sharing your expertise, breaking news, or whatever’s on your mind, you’re in good company on Blogger.
+            Sign up to discover why millions of people have published their passions here.</p>
+        <a class="btn3" href="/user/signup">Create Your Blog</a>
+    </div>
+    <div class="divider"></div>
     <div class="footer">
-    <div class="faq">
-        <a href="">faq</a>
+        <div class="footer-links">
+            <a href="#">FAQ</a>
+            <a href="#">About Us</a>
+            <a href="#">Copyright</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Careers</a>
+        </div>
+        <div class="mail">
+            <p>Contact: +1 900 000 0000</p>
+            <p>Mail: <a href="mailto:xyz@gmail.com">xyz@gmail.com</a></p>
+        </div>
     </div>
-    <div class="about">
-        <a href="">about us</a>
-    </div>
-    <div class="copy">
-        <a href="">copy rigth</a>
-    </div>
-    <div class="mail">
-        contact:+1900000000000 <br>
-        mail:xyz@gmail.com
-    </div>
-    </div>
+    
 
-        <script>
-            const blogs = [
-                { id: 1, title: "Machu Picchu", coverImageURL: "images/machu.mp4" },
-                { id: 2, title: "Pyramids of Giza", coverImageURL: "images/giza.mp4" },
-                { id: 3, title: "Great Wall of China", coverImageURL: "images/great.mp4" },
-                { id: 4, title: "Christ The Redeemer", coverImageURL: "images/christ.mp4" },
-            ];
-        
-            const blogsContainer = document.querySelector('.blogscontainer');
-        
-            blogs.forEach(blog => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.onclick = () => redirectToPage("/user/signin");
-        
-                // Adding the video element directly in the DOM
-                card.innerHTML = `
+    <script>
+        const blogs = [
+            { id: 1, title: "Machu Picchu", coverImageURL: "images/machu.mp4" },
+            { id: 2, title: "Pyramids of Giza", coverImageURL: "images/giza.mp4" },
+            { id: 3, title: "Great Wall of China", coverImageURL: "images/great.mp4" },
+            { id: 4, title: "Christ The Redeemer", coverImageURL: "images/christ.mp4" },
+        ];
+
+        const blogsContainer = document.querySelector('.blogscontainer');
+
+        blogs.forEach(blog => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.onclick = () => redirectToPage("/user/signin");
+
+            // Adding the video element directly in the DOM
+            card.innerHTML = `
                     <video class="blog-video" src="${blog.coverImageURL}" loop muted></video>
                     <div class="title">
                         <h3>${blog.title}</h3>
                     </div>
                 `;
-        
-                blogsContainer.appendChild(card);
-        
-                // Get the video element from the card
-                const video = card.querySelector('.blog-video');
-        
-                // Add event listeners for mouse enter and leave
-                card.addEventListener('mouseenter', () => {
-                    video.play();
-                });
-        
-                card.addEventListener('mouseleave', () => {
-                    video.pause();
-                });
+
+            blogsContainer.appendChild(card);
+
+            // Get the video element from the card
+            const video = card.querySelector('.blog-video');
+
+            // Add event listeners for mouse enter and leave
+            card.addEventListener('mouseenter', () => {
+                video.play();
             });
-        
-            function redirectToPage(url) {
-                window.location.href = url;
-            }
-        </script>
+
+            card.addEventListener('mouseleave', () => {
+                video.pause();
+            });
+        });
+
+        function redirectToPage(url) {
+            window.location.href = url;
+        }
+    </script>
 </body>
+
 </html>
