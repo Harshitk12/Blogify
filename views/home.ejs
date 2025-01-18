@@ -7,29 +7,51 @@
     <%- include('./partials/head') %>
     <title>Homepage</title>
     <style>
+      body{
+        background-color: #121212;
+      }
       .card{
-        height: 300px; width:415px; 
-        border: 2px solid rgba(0, 0, 0, 0.557);
-        margin: 0.25vw;
-        margin-bottom: 8px;
-        display:inline-block;
-         border-radius: 10px; 
+        height: 260px; width:1000px; 
+        background-color: #333333;
+        /* border: 2px solid rgba(255, 255, 255, 0.557); */
+        /* margin: 0.25vw;  */
+        margin-top: 40px;
+        display:flex;
+        flex-direction: row;
+        gap: 15px;
+        color: #FFFFFF;
+        animation: appear 3s linear;
+        animation-timeline: view();
+         /* border-radius: 10px;  */
       }
       video{
-        border-top-left-radius:10px;
-        border-top-right-radius: 10px;
+        /* border-top-left-radius:10px;
+        border-top-right-radius: 10px; */
+        margin: 10px;
         width: 412px;
       }
       .coverimg{
-        border-top-left-radius:10px;
-        border-top-right-radius: 10px;
+        /* border-top-left-radius:10px;
+        border-top-right-radius: 10px; */
+        margin: 10px;
         width: 412px;
       }
       .card:hover{
         cursor:pointer;
         opacity: 0.9;
-        animation: rotatecard 0.5s ease-in-out forwards;
-        animation-direction: alternate;
+        /* animation: rotatecard 0.5s ease-in-out forwards; 
+        animation-direction: alternate; */
+        
+      }
+      @keyframes appear{
+        0%,100%{
+          opacity: 0.5;
+          scale: 0.75;
+        }
+        50%{
+          opacity: 1;
+          scale: 1;
+        }
         
       }
       @keyframes rotatecard {
@@ -38,26 +60,40 @@
        }
        
     100% {
-      transform: scale(1.05) translate3d(0, 0, 150px); 
+      transform: scale(1.05) translate3d(0, 0, 50px); 
     }
       }
       .title{
-        height:68px;
-        display:flex;
+        /* height:68px; */
+        /* display:flex;
         justify-content:start;
         margin-left: 10px;
-        align-items:center;
+        align-items:center; */
+        /* margin-top: 10px; */
+        font-size: 30px;
         font-family: "Fraunces", serif;
         font-weight: bolder;
       }
-    
+      .description{
+        font-family: "Fraunces", serif;
+        font-size: 20px;
+        margin-top: 20px;
+      }
+      .cardinfo{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .empty{
+        height: 400px;
+      }
     </style>
   </head>
   <body>
     <%- include('./partials/nav') %>
 
     <% if(locals.searchedBlogs) {%>
-    <div class="blogscontainer" style="display: inline-block;margin-left:15.7vw;margin-top:60px">
+    <div class="blogscontainer" style="display: inline-block;margin-left:16.7vw;margin-top:60px">
       <% searchedBlogs.forEach(blog => { %>
         <div class="card" onclick="redirectToBlogPage('/blog/<%= blog._id %>')">
           <div style="height:232px;width:415px">
@@ -67,15 +103,15 @@
               else {%>
               <img class="coverimg" src="<%= blog.coverImageURL %>"  style="height:232px" >
               <% } %>
-          </div>  
-          <div class="title">
-            <h5 ><%= blog.title %></h5>
-          </div>
+              </div>  
+              <div class="title">
+                <h5 ><%= blog.title %></h5>
+              </div>
         </div>
       <% })} %>
     </div>
     <% if(locals.blogs) {%>
-      <div class="blogscontainer" style="display: inline-block;margin-left:15.7vw;margin-top:60px">
+      <div class="blogscontainer" style="display: inline-block;margin-left:21.7vw;margin-top:60px">
         <% blogs.forEach(blog => { %>
           <div class="card" onclick="redirectToBlogPage('/blog/<%= blog._id %>')">
             <div style="height:232px;width:415px">
@@ -85,14 +121,19 @@
                 else {%>
                 <img class="coverimg" src="<%= blog.coverImageURL %>"  style="height:232px" >
                 <% } %>
-            </div>  
-            <div class="title">
-              <h5 ><%= blog.title %></h5>
-            </div>
+                </div>  
+                <div class="cardinfo">
+                  
+                  <div class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit amet nemo, commodi ullam, deserunt iste at, dolorem id illum adipisci nesciunt! Fugit facere hic possimus nam voluptatibus nisi, omnis aut nihil quas, officia nulla laudantium maxime cum adipisci dicta dolor!....</div>
+                  <div class="title">
+                   - <%= blog.title %>
+                  </div>
+                  </div>
           </div>
         <% }) %>
       </div>
       <% } %>
+      <div class="empty"></div>
       <%- include('./partials/scripts') %>
       
     <script>
