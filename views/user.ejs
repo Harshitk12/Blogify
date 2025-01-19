@@ -1,215 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include('./partials/head') %>
     <title>User Info</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
     <style>
-        body{
+        * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
-            background-color: #121212;
-            color: antiquewhite;
         }
-        .usercontainer{
-            margin-top: 55px;
-            margin-left: 15vw;
-            display: flex;
-            height: 350px;
-            align-items: center;
-            border: 2px solid black;
-        }
-        .userImg{
-            margin: 30px;
-            margin-left: 5vw;
-            margin-right: 5vw;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .file-label{
-            margin-top: 18px;
-            height: 30px;
-            width: 110px;
-            border: 2px solid #515050;
-            background-color: #515050;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-            font-family: 'Times New Roman', Times, serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .userInfo{
-            margin-top:0px;
-            height: 100%;
-            padding-top: 60px;
-            position:relative;
-        }
-        .userInfo > *{
-            display: flex;
-            margin-bottom: 1px;
-            font-size: 25px;
-        }
-        .info{
-            width: 40vw;
-            border-radius: 4px;
-            border: 2px solid rgba(0, 0, 0, 0.203);
-            height: 27px;
-            font-family: 'Times New Roman', Times, serif;
-            font-weight: bold;
-            color: antiquewhite;
-            font-size: 20px;
-        }
-        .info::placeholder{
-            font-family: 'Times New Roman', Times, serif;
-            font-weight: bold;
-            color: antiquewhite;
-            font-size: 20px;
-        }
-        .editButton{
-            margin-top: 22px;
-            margin-bottom: 0px;
-            font-size: 15px;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            right: 2px;
-        }
-        #pfp {
-            opacity: 0;
-            position: absolute;
-            width: 0;
-            height: 0;
-          }
-        .pfp{
-            border: 2px solid black;
-            border-radius: 50%;
-            height: 200px;
-          }
 
-          .card{
-            background-color: #515050;
-            height: 300px; width:415px; 
-            border: 2px solid black;
-            margin: 0.25vw;
-            display:inline-block;
-            border-radius: 10px;
-          }
-          video{
-            border-top-left-radius:10px;
-            border-top-right-radius: 10px;
-            width: 412px;
-          }
-          .coverimg{
-            border-top-left-radius:10px;
-            border-top-right-radius: 10px;
-            width: 414px;
-          }
-          .card:hover{
-            cursor:pointer;
-            opacity: 0.9;
-          }
-          .title{
-            height:52px;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            font-family:'Times New Roman', Times, serif;
-          }
-    </style> 
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #1e1e1e, #2b2b2b);
+            color: #fff;
+        }
+
+        .usercontainer {
+            margin-top: 60px;
+            margin-left: 15.5vw;
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            border-radius: 15px;
+            background-color: #333;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            gap: 20px;
+            height: 380px;
+        }
+
+        .userImg {
+            text-align: center;
+        }
+
+        .pfp {
+            border: 5px solid #FFD93B;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            margin-top: 33px;
+        }
+
+        .file-label {
+            margin-top: 19px;
+            background: linear-gradient(to right, #d5cf25, #e5e9f0);
+            color: #333;
+            border-radius: 25px;
+            padding: 5px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .file-label:hover {
+            background-color: #ffcc00;
+        }
+
+        .userInfo {
+            width: 100%;
+        }
+
+        .userInfo > div {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .userInfo pre {
+            width: 120px;
+            height: 50px;
+            font-size: 18px;
+            color: #FFD93B;
+            margin-bottom: 0px;
+            display: flex;
+            align-items: center;
+        }
+
+        .info {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #555;
+            background-color: #444;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .info:disabled {
+            opacity: 0.7;
+            background-color: #3a3a3a;
+        }
+
+        .editButton {
+            margin-top: 10px;
+            padding: 8px 20px;
+            background: linear-gradient(to right, #d5cf25, #e5e9f0);
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            color: #333;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .editButton:hover {
+            background-color: #ffcc00;
+        }
+
+        h1 {
+            margin-left: 16vw;
+            margin-top: 30px;
+            font-size: 30px;
+            font-weight: 600;
+            color: #FFD93B;
+        }
+
+        .creator_Blogs {
+            margin: 20px 0 0 16vw;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .card {
+            width: 300px;
+            background-color: #444;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        video, .coverimg {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .title {
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            background: linear-gradient(to right, #d5cf25, #e5e9f0);
+            color: #333;
+        }
+        .noBlogs{
+          margin-left: 15vw;
+          height: 237px;
+          color:#FFD93B;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: bold;
+          font-size: 40px;
+          font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
 </head>
+
 <body>
     <%- include('./partials/nav') %>
-    
-    
     <form class="usercontainer" action="/user/info/<%= user._id %>" method="post" enctype="multipart/form-data">
-            <div class="userImg">
-                <img class="pfp" src="<%= user.profileImageURL %>" width="200px" />
-                <div>
-                    <label  for="pfp" class="file-label">Choose Image</label>
-                    <input class="info" type="file" id="pfp" name="profileImageURL">
-                </div>
-            </div>
-
-            <div class="userInfo"> 
-            <div class=" name">
-                <pre>Name :         </pre>
-                <input class="info" type="text" name="fullName" value="<%= user.fullName %>">
-            </div>
-            <div class=" email">
-                <pre>Email :        </pre>
-                <input class="info" type="text" name="email" value="<%= user.email %>">
-            </div>
-            <div class=" age">
-                <pre>Age :          </pre>
-                <input class="info" type="text" name="age" value="<%= user.age %>">
-            </div>
-            <div class=" profession">
-                <pre>Profession :   </pre>
-                <input class="info" type="text" name="profession" value="<%= user.profession %>">
+        <div class="userImg">
+            <img class="pfp" src="<%= user.profileImageURL %>" alt="">
+            <label for="pfp" class="file-label">Choose Image</label>
+            <input type="file" class="info" id="pfp" name="profileImageURL" style="display: none;" disabled>
+        </div>
+        <div class="userInfo">
+            <div>
+                <pre>Name:</pre>
+                <input class="info" type="text" name="fullName" value="<%= user.fullName %>" disabled>
             </div>
             <div>
-                <button class="file-label editButton">Edit</button>
+                <pre>Email:</pre>
+                <input class="info" type="email" name="email" value="<%= user.email %>" disabled>
             </div>
-        </div> 
+            <div>
+                <pre>Age:</pre>
+                <input class="info" type="number" name="age" value="<%= user.age %>" disabled>
+            </div>
+            <div>
+                <pre>Profession:</pre>
+                <input class="info" type="text" name="profession" value="<%= user.profession %>" disabled>
+            </div>
+            <button class="editButton" type="button">Edit</button>
+        </div>
     </form>
-    <h1 style="margin-left: 16vw;margin-top:20px;font-weight:500">BLOGS BY - <%= user.fullName  %></h1>
-    <div style="margin-left: 15vw;height: 2px;background-color:black;"></div>
-    <div class="creator_Blogs" style="display: inline-block;margin-left:15.5vw;margin-top:10px">
+
+    <% if(locals.blogs.length!==0) {%>
+      <h1>BLOGS BY - <%= user.fullName %></h1>
+    <div class="creator_Blogs">
         <% blogs.forEach(blog => { %>
-            <div class="card" onclick="redirectToBlogPage('/blog/<%= blog._id %>')">
-              <div style="height:232px;width:415px">
-                <% if(blog.coverImageURL.endsWith(".mp4")) {%>
-                <video src="<%= blog.coverImageURL %>"  style="height:232px" loop muted></video>
-                <% }
-                  else {%>
-                  <img class="coverimg" src="<%= blog.coverImageURL %>"  style="height:232px" >
-                  <% } %>
-              </div>  
-              <div class="title">
-                <h5 ><%= blog.title %></h5>
-              </div>
-            </div>
-          <% }) %>
+        <div class="card" onclick="redirectToBlogPage('/blog/<%= blog._id %>')">
+            <% if (blog.coverImageURL.endsWith('.mp4')) { %>
+            <video src="<%= blog.coverImageURL %>" loop muted></video>
+            <% } else { %>
+            <img class="coverimg" src="<%= blog.coverImageURL %>" alt="Blog Cover">
+            <% } %>
+            <div class="title"><%= blog.title %></div>
+        </div>
+        <% }) }%>
+    <% if(locals.blogs.length===0) {%>
+      <p class="noBlogs">You Have No Blogs</p>
+      <% } %>
     </div>
+    <script>
+        const editButton = document.querySelector('.editButton');
+        const infoInputs = document.querySelectorAll('.info');
+
+        editButton.addEventListener('click', (event) => {
+            if (editButton.textContent === 'Edit') {
+                event.preventDefault();
+                infoInputs.forEach(input => input.disabled = false);
+                editButton.textContent = 'Submit';
+                editButton.type = 'submit';
+            }
+        });
+
+
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+          video.addEventListener('mouseenter', () => {
+            video.play(); 
+          });
         
-    
+          video.addEventListener('mouseleave', () => {
+            video.pause(); 
+            video.currentTime = 0; 
+          });
+        });
 
-
-<script>
-    const editButton=document.querySelector('.editButton');
-    const info=document.querySelectorAll('.info');
-    info.forEach(input => (input.disabled = true));
-
-editButton.addEventListener('click', (event) => {
-    const areDisabled = info[0].disabled;
-
-    if (areDisabled) {
-        event.preventDefault(); 
-        info.forEach(input => (input.disabled = false));
-        editButton.innerText = "Submit";
-        editButton.type = "submit"; 
-    }
-});
-
-function redirectToBlogPage(path){
-    window.location.href = path;
-  }
-
-  const videos = document.querySelectorAll('video');
-  videos.forEach(video => {
-    video.addEventListener('mouseenter', () => {
-      video.play(); 
-    });
-  
-    video.addEventListener('mouseleave', () => {
-      video.pause(); 
-      video.currentTime = 0; 
-    });
-  });
-
-  
-</script> 
+        function redirectToBlogPage(path) {
+            window.location.href = path;
+        }
+    </script>
 </body>
+
 </html>
