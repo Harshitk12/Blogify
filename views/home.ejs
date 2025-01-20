@@ -73,6 +73,8 @@
         font-size: 30px;
         font-family: "Fraunces", serif;
         font-weight: bolder;
+        position: absolute;
+        bottom: 10px;
       }
       .description{
         font-family: "Fraunces", serif;
@@ -130,7 +132,7 @@
                   
                   <div class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit amet nemo, commodi ullam, deserunt iste at, dolorem id illum adipisci nesciunt! Fugit facere hic possimus nam voluptatibus nisi, omnis aut nihil quas, officia nulla laudantium maxime cum adipisci dicta dolor!....</div>
                   <div class="title">
-                   - <%= blog.title %>
+                   - <%= blog.title.toUpperCase() %>
                   </div>
                   </div>
           </div>
