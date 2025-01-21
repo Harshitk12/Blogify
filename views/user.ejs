@@ -13,9 +13,9 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Times New Roman', Times, serif;
             background: linear-gradient(to bottom, #1e1e1e, #2b2b2b);
-            color: #fff;
+            color: white;
         }
 
         .usercontainer {
@@ -197,7 +197,7 @@
     </form>
 
     <% if(locals.blogs.length!==0) {%>
-      <h1>BLOGS BY - <%= user.fullName %></h1>
+      <h1>BLOGS BY - <%= user.fullName.toUpperCase() %></h1>
     <div class="creator_Blogs">
         <% blogs.forEach(blog => { %>
         <div class="card" onclick="redirectToBlogPage('/blog/<%= blog._id %>')">
