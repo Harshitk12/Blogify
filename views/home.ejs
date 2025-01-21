@@ -1,69 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">  
-  <head>
-    <%- include('./partials/head') %>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Unbounded:wght@200..900&display=swap"
+  rel="stylesheet">
+
+<head>
+  <%- include('./partials/head') %>
     <title>Homepage</title>
     <style>
-      body{
-        background: linear-gradient(to right, #000000dc, #00000063); 
+      body {
+        background: linear-gradient(to right, #000000dc, #00000063);
       }
-      .card{
-        height: 260px; width:70vw; 
-        background: linear-gradient(to right, #000000c2, #e5e9f0); 
+
+      .card {
+        height: 260px;
+        width: 70vw;
+        background: linear-gradient(to right, #000000c2, #e5e9f0);
         box-shadow: 0px 10px 20px rgba(233, 198, 42, 0.277);
         /* border: 2px solid rgba(255, 255, 255, 0.557); */
         /* margin: 0.25vw;  */
         margin-top: 20px;
-        display:flex;
+        display: flex;
         flex-direction: row;
         gap: 15px;
         color: #000000;
         animation: appear 3s linear;
         animation-timeline: view();
-         border-radius: 20px;  
-         
+        border-radius: 20px;
+
       }
-      video{
+
+      video {
         border-radius: 20px;
         margin: 10px;
         width: 412px;
       }
-      .coverimg{
+
+      .coverimg {
         border-radius: 20px;
         margin: 10px;
         width: 412px;
       }
-      .card:hover{
-        cursor:pointer;
+
+      .card:hover {
+        cursor: pointer;
         opacity: 0.9;
         /* animation: rotatecard 0.5s ease-in-out forwards; 
         animation-direction: alternate; */
-        
+
       }
-      @keyframes appear{
-        0%,100%{
+
+      @keyframes appear {
+
+        0%,
+        100% {
           opacity: 0.5;
           scale: 0.75;
         }
-        50%{
+
+        50% {
           opacity: 1;
           scale: 1;
         }
-        
+
       }
+
       @keyframes rotatecard {
         0% {
-        transform: scale(1) translate3d(0, 0, 0); 
-       }
-       
-    100% {
-      transform: scale(1.05) translate3d(0, 0, 50px); 
-    }
+          transform: scale(1) translate3d(0, 0, 0);
+        }
+
+        100% {
+          transform: scale(1.05) translate3d(0, 0, 50px);
+        }
       }
-      .title{
+
+      .title {
         /* height:68px; */
         /* display:flex;
         justify-content:start;
@@ -74,89 +88,100 @@
         font-family: "Fraunces", serif;
         font-weight: bolder;
       }
-      .description{
+
+      .description {
         font-family: "Fraunces", serif;
         font-size: 20px;
         margin-top: 20px;
+        width: 40vw;
+        height: 157px;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
-      .cardinfo{
+
+      .cardinfo {
         display: flex;
         flex-direction: column;
         gap: 10px;
       }
-      .empty{
+
+      .empty {
         height: 400px;
       }
     </style>
-  </head>
-  <body>
-    <%- include('./partials/nav') %>
+</head>
+
+<body>
+  <%- include('./partials/nav') %>
 
     <% if(locals.searchedBlogs) {%>
-    <div class="blogscontainer" style="display: inline-block;margin-left:21.7vw;margin-top:60px">
-      <% searchedBlogs.forEach(blog => { %>
-        <div class="card" onclick="redirectToBlogPage('/blog/<%= blog._id %>')">
-          <div style="height:232px;width:415px">
-            <% if(blog.coverImageURL.endsWith(".mp4")) {%>
-            <video src="<%= blog.coverImageURL %>"  style="height:232px" loop muted></video>
-            <% }
-              else {%>
-              <img class="coverimg" src="<%= blog.coverImageURL %>"  style="height:232px" >
-              <% } %>
-              </div>  
-              <div class="cardinfo">
-                  
-                  <div class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit amet nemo, commodi ullam, deserunt iste at, dolorem id illum adipisci nesciunt! Fugit facere hic possimus nam voluptatibus nisi, omnis aut nihil quas, officia nulla laudantium maxime cum adipisci dicta dolor!....</div>
-                  <div class="title">
-                   - <%= blog.title %>
-                  </div>
-                  </div>
-        </div>
-      <% })} %>
-    </div>
-    <% if(locals.blogs) {%>
       <div class="blogscontainer" style="display: inline-block;margin-left:21.7vw;margin-top:60px">
-        <% blogs.forEach(blog => { %>
+        <% searchedBlogs.forEach(blog=> { %>
           <div class="card" onclick="redirectToBlogPage('/blog/<%= blog._id %>')">
             <div style="height:232px;width:415px">
               <% if(blog.coverImageURL.endsWith(".mp4")) {%>
-              <video src="<%= blog.coverImageURL %>"  style="height:232px" loop muted></video>
-              <% }
-                else {%>
-                <img class="coverimg" src="<%= blog.coverImageURL %>"  style="height:232px" >
-                <% } %>
-                </div>  
-                <div class="cardinfo">
-                  
-                  <div class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit amet nemo, commodi ullam, deserunt iste at, dolorem id illum adipisci nesciunt! Fugit facere hic possimus nam voluptatibus nisi, omnis aut nihil quas, officia nulla laudantium maxime cum adipisci dicta dolor!....</div>
-                  <div class="title">
-                   - <%= blog.title %>
-                  </div>
-                  </div>
+                <video src="<%= blog.coverImageURL %>" style="height:232px" loop muted></video>
+                <% } else {%>
+                  <img class="coverimg" src="<%= blog.coverImageURL %>" style="height:232px">
+                  <% } %>
+            </div>
+            <div class="cardinfo">
+
+              <div class="description">
+                <%= blog.body %>
+              </div>
+              <div class="title">
+                - <%= blog.title %>
+              </div>
+            </div>
           </div>
-        <% }) %>
+          <% })} %>
       </div>
-      <% } %>
-      <div class="empty"></div>
-      <%- include('./partials/scripts') %>
-      
-    <script>
-      const videos = document.querySelectorAll('video');
+      <% if(locals.blogs) {%>
+        <div class="blogscontainer" style="display: inline-block;margin-left:21.7vw;margin-top:60px">
+          <% blogs.forEach(blog=> { %>
+            <div class="card" onclick="redirectToBlogPage('/blog/<%= blog._id %>')">
+              <div style="height:232px;width:415px">
+                <% if(blog.coverImageURL.endsWith(".mp4")) {%>
+                  <video src="<%= blog.coverImageURL %>" style="height:232px" loop muted></video>
+                  <% } else {%>
+                    <img class="coverimg" src="<%= blog.coverImageURL %>" style="height:232px">
+                    <% } %>
+              </div>
+              <div class="cardinfo">
 
-      function redirectToBlogPage(path){
-        window.location.href = path;
-      }
+                <div class="description">
+                  <%= blog.body %>..
+                </div>
+                <div class="title">
+                  - <%= blog.title %>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+        </div>
+        <% } %>
+          <div class="empty"></div>
+          <%- include('./partials/scripts') %>
 
-      videos.forEach(video => {
-        video.addEventListener('mouseenter', () => {
-          video.play(); 
-        });
-      
-        video.addEventListener('mouseleave', () => {
-          video.pause(); 
-          video.currentTime = 0; 
-        });
-      });
-    </script>
-  </body>
+            <script>
+              const videos = document.querySelectorAll('video');
+
+              function redirectToBlogPage(path) {
+                window.location.href = path;
+              }
+
+              videos.forEach(video => {
+                video.addEventListener('mouseenter', () => {
+                  video.play();
+                });
+
+                video.addEventListener('mouseleave', () => {
+                  video.pause();
+                  video.currentTime = 0;
+                });
+              });
+            </script>
+</body>
+
 </html>
