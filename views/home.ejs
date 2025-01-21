@@ -122,22 +122,6 @@
           <div class="card" onclick="redirectToBlogPage('/blog/<%= blog._id %>')">
             <div style="height:232px;width:415px">
               <% if(blog.coverImageURL.endsWith(".mp4")) {%>
-<<<<<<< HEAD
-                <video src="<%= blog.coverImageURL %>" style="height:232px" loop muted></video>
-                <% } else {%>
-                  <img class="coverimg" src="<%= blog.coverImageURL %>" style="height:232px">
-                  <% } %>
-            </div>
-            <div class="cardinfo">
-
-              <div class="description">
-                <%= blog.body %>
-              </div>
-              <div class="title">
-                - <%= blog.title %>
-              </div>
-            </div>
-=======
               <video src="<%= blog.coverImageURL %>"  style="height:232px" loop muted></video>
               <% }
                 else {%>
@@ -151,7 +135,6 @@
                    - <%= blog.title.toUpperCase() %>
                   </div>
                   </div>
->>>>>>> ada6d426a3f81e7886aa5cb297122966f9e5f953
           </div>
           <% })} %>
       </div>
