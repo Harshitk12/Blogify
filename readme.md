@@ -1,11 +1,11 @@
-# 📝 Blogify - A Full Stack Blog Platform
+# Blogify - A Full Stack Blog Platform
 
 A dynamic blog platform built using **Node.js**, **Express**, **MongoDB**, **Multer**, **EJS**, and **Vanilla JavaScript**. Users can sign up, log in, create blogs with 
 media (images/videos), comment on posts, delete their own blogs and comments, and search for blogs by keywords.
 
 ---
 
-## 🚀 Features
+## Features
 
 - User Authentication (Signup & Signin)
 - Blog Creation with:
@@ -18,7 +18,7 @@ media (images/videos), comment on posts, delete their own blogs and comments, an
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer         | Tech Used                     |
 |--------------|-------------------------------|
@@ -28,5 +28,3 @@ media (images/videos), comment on posts, delete their own blogs and comments, an
 | File Uploads | Multer                        |
 | Templating   | EJS                           |
 | Authentication | Sessions / Cookies / bcrypt (if used) |
-
----
