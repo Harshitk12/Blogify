@@ -7,14 +7,14 @@ media (images/videos), comment on posts, delete their own blogs and comments, an
 
 ## 🚀 Features
 
-- 🔐 User Authentication (Signup & Signin)
-- 🖼️ Blog Creation with:
+- User Authentication (Signup & Signin)
+- Blog Creation with:
   - Image or Video Upload (using Multer)
   - Title and Content
-- 💬 Comments on Blogs
-- 🗑️ Deletion of Blogs & Comments (by owners)
-- 🔍 Blog Search Functionality
-- 🎨 Responsive UI with HTML, CSS, and EJS templating
+- Comments on Blogs
+- Deletion of Blogs & Comments (by owners)
+- Blog Search Functionality
+- Responsive UI with HTML, CSS, and EJS templating
 
 ---
 
