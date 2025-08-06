@@ -26,6 +26,7 @@ A dynamic and responsive blog platform built using **Node.js**, **Express**, **M
 | Database     | MongoDB (Mongoose)            |
 | File Uploads | Multer                        |
 | Templating   | EJS                           |
-| Authentication | Sessions / Cookies / bcrypt (if used) |
+| Authentication | Sessions / Cookies / hashing|
+
 
 
